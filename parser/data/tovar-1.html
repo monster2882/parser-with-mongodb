@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+          content="
+          
+            Сбор открытой информации в интернете, её обработка и подготовка данных к дальнейшему их использованию.
+          ">
+
+    
+    
+    <meta name="robots" content="noindex, nofollow">
+
+
+    <link rel="shortcut icon" href="/static/images/favicon.png" type="image/png">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+    <!-- FontAwesome CSS -->
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet"
+          integrity="sha384-SOnAn/m2fVJCwnbEYgD4xzrPtvsXdElhOVvR8ND1YjB5nhGNwwf7nBQlhfAwHAZC" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/v4-shims.css" rel="stylesheet"
+          integrity="sha384-MAgG0MNwzSXBbmOw4KK9yjMrRaUNSCk3WoZPkzVC1rmhXzerY4gqk/BLNYtdOFCO" crossorigin="anonymous">
+
+    <!--    Custom CSS-->
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <title>Parsemachine | Парсинг</title>
+
+    <!--    Custom JS-->
+    <script type="text/javascript">
+        function set_contact(elm, set_text=true) {
+            var contacts = {
+                'c-telegram': ['parsemachine', 'tg://resolve?domain=' + 'parsemachine'],
+                'c-email': ['order' + '@' + 'parsemachine.com', 'mailto:' + 'order' + '@' + 'parsemachine.com'],
+                'c-youtube': ['https://www.youtube.com/' + 'parsemachine', 'https://www.youtube.com/' + 'parsemachine'],
+            }
+            var contact = null;
+            for (var key in contacts) {
+                if (contacts.hasOwnProperty(key)) {
+                    if (elm.className.split(' ').indexOf(key) >= 0) {
+                        contact = contacts[key];
+                        break;
+                    }
+                }
+            }
+            if (set_text) {
+                elm.text = contact[0];
+                elm.textContent = contact[0];
+            }
+            elm.setAttribute('href', contact[1]);
+            elm.setAttribute('onclick', '');
+            return !set_text;
+          }
+
+    </script>
+
+    
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FY4MED6WW4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FY4MED6WW4');
+</script>
+
+    
+
+    
+
+<style type="text/css">
+    .selector {
+        background-color: rgb(247, 247, 247);
+        padding: 6px 8px;
+        font-size: 0.75rem;
+    }
+    .selector:hover {
+        background-color: rgb(247, 195, 195);
+        cursor: pointer;
+    }
+</style>
+
+<style type="text/css">
+    .preview .name {
+        font-weight: 600;
+    }
+</style>
+
+</head>
+<body>
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-xl-10 offset-xl-1 pb-1 px-0">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid">
+                        <div id="logo-block" class="me-0 me-lg-5">
+                            <a href="/" class="no-hover">
+                                
+                                
+                                    
+                                        <img class="img-fluid" alt=""
+                                         src="/media/cache/5d/26/5d2693767358eb43ea5a4ba5d2d018d2.png" width="64" height="64">
+                                    
+                                
+                                
+                            </a>
+                            <a href="/" class="no-hover">
+                                <p id="logo-h">Parsemachine</p>
+                            </a>
+                        </div>
+                        <button class="ms-2 mt-1 navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                                aria-controls="menu" aria-haspopup="true" aria-expanded="false" aria-label="Menu">
+                            <span>Меню</span>
+                        </button>
+                        <div class="collapse navbar-collapse mt-3 mt-lg-0 ms-0 ms-lg-5" id="menu">
+                            <ul class="navbar-nav mx-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/">
+                                        Главная
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/articles/">
+                                        Статьи
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown ">
+                                    <a class="nav-link dropdown-toggle" href="#"
+                                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Портфолио
+                                        
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-slow sub-menu">
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/telegram_bots/">
+                                                Telegram-боты:
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/freelance_manager_bot/">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Агрегатор фриланса
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/zakupki_notifier_bot/">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Парсер закупок
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/sushipizzabot/">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Интернет-магазин
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/portfolio/amazon_scraper/">
+                                                Парсер Amazon
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/portfolio/">
+                                                Портфолио:
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/portfolio/price_comparison">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Сравнение цен
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/portfolio/news_monitor">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Монитор новостей
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/portfolio/goods_scraper">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Парсер товаров
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown ">
+                                    <a class="nav-link dropdown-toggle" href="#"
+                                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Сервисы
+                                        
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-slow sub-menu">
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/sandbox/">
+                                                Среда для парсинга
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown ">
+                                    <a class="nav-link dropdown-toggle" href="#"
+                                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        B2B
+                                        
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-slow sub-menu">
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/b2b/">
+                                                Услуги для бизнеса:
+                                            </a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/b2b/parsing/">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Парсинг
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/b2b/data_analysis/">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Анализ данных
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/b2b/price_monitoring/">
+                                                <span class="list_dot">&#x26aa;</span>
+                                                Мониторинг цен
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/order/">
+                                        Заказать
+                                        
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/about/">
+                                        О нас
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="/contact_us/">
+                                        Контакты
+                                        
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    
+                                    
+                                    
+
+                                    <a class="nav-link dropdown-toggle
+                                              
+                                              nav-item-flag
+                                              "
+                                       href="#"
+                                       data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        
+                                        <span class="flag-bigger">🇷🇺</span>
+                                        
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-slow sub-menu">
+                                        
+                                        <li>
+                                            <a class="dropdown-item active"
+                                               href="/change_language/ru/">
+                                                
+                                                <span class="flag-bigger">🇷🇺</span>
+                                                
+                                                <span>Русский</span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a class="dropdown-item "
+                                               href="/change_language/en/">
+                                                
+                                                <span class="flag-bigger">🇬🇧</span>
+                                                
+                                                <span>English</span>
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container-fluid" id="content">
+    <div class="row">
+        <div class="col-xl-10 offset-xl-1 pb-2">
+            <div class="row py-2 py-md-3" id="main_block">
+                
+                <div class="col-12">
+                    
+<div class="row mb-3">
+    <div class="col-12">
+        <p class="mt-0 mb-4 breadcrumbs">
+            <a href="/">
+                Главная страница
+            </a>
+            >
+            <a href="/sandbox/">
+                Тестовая среда для парсинга
+            </a>
+            >
+            <a href="/sandbox/catalog/">
+                Каталог товаров (стр. 1)
+            </a>
+            >
+            <span>Товар №1</span>
+        </p>
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col-12">
+        <h1 id="product_name">
+            Товар №1
+        </h1>
+        <p>
+            <samp class="selector">#product_name</samp>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-5 col-sm-5 col-12">
+        <div class="preview">
+            
+                
+                    <img class="img-fluid" id="product_img" alt="Товар Товар №1"
+                     src="/media/cache/cb/67/cb6707d808a6898adf2b6026868b4b41.png" width="462" height="271">
+                
+            
+            <p class="mt-2">
+                <samp class="selector">#product_img</samp>
+            </p>
+        </div>
+    </div>
+    <div class="col-lg-7 col-sm-7 col-12">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-5 col-12">
+                <p class="mt-0 mb-0">
+                    <span style="font-weight: 600;">Цена</span>
+                    <br/>
+                    <big id="product_amount">15 300</big> руб.
+                </p>
+                <p class="mb-3">
+                    <samp class="selector">#product_amount</samp>
+                </p>
+                <p class="mt-4 mb-0">
+                    <span style="font-weight: 600;">Артикул</span>
+                    <br/>
+                    <span id="sku">AA1-B</span>
+                </p>
+                <p class="mb-3">
+                    <samp class="selector">#sku</samp>
+                </p>
+            </div>
+            <div class="col-xl-6 col-lg-7 col-md-8 col-sm-7 col-12">
+                <p class="mt-0 mb-2">
+                    <span style="font-weight: 600;">Характеристики</span>
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-2" id="characteristics">
+                    <tbody>
+                    <tr>
+                        <td>Ширина</td>
+                        <td>31 см.</td>
+                    </tr>
+                    <tr>
+                        <td>Высота</td>
+                        <td>41 см.</td>
+                    </tr>
+                    <tr>
+                        <td>Глубина</td>
+                        <td>51 см.</td>
+                    </tr>
+                    </tbody>
+                </table>
+                </div>
+                <p class="mb-3">
+                    <samp class="selector">#characteristics tbody tr</samp>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-12">
+        <p class="mt-4 mb-2">
+            <span style="font-weight: 600;">
+                Описание товара
+            </span>
+            <br/>
+            <span id="description">
+                Рандомное описание товара с номером
+                1.
+            </span>
+        </p>
+        <p class="mb-3">
+            <samp class="selector">#description</samp>
+        </p>
+    </div>
+</div>
+<div class="row mt-4">
+    <div class="col-12 mt-4">
+        <p class="text-muted">
+            <small>
+                Предложение носит информационный характер и не является публичной офертой.
+            </small>
+        </p>
+    </div>
+</div>
+
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-10 offset-xl-1">
+                <div class="row py-3 px-md-2" id="footer-blocks">
+                    <div class="col-xl-3 col-md-3 col-6 footer-block">
+                        <p class="footer_links_title">
+                            Parsemachine
+                        </p>
+                        <p class="footer_item">
+                            <a href="/about/" class="no-hover">
+                                О нас
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/about/#whatwedo" class="no-hover">
+                                Чем мы занимаемся
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/#faq" class="no-hover">
+                                Часто задаваемые вопросы
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/order/" class="no-hover">
+                                Заказать парсинг
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/contact_us/" class="no-hover">
+                                Контакты
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-6">
+                        <p class="footer_links_title">
+                            Telegram-боты
+                        </p>
+                        <p class="footer_item">
+                            <a href="/telegram_bots/" class="no-hover">
+                                Что это и зачем
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/telegram_bots/#examples" class="no-hover">
+                                Примеры
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/telegram_bots/order/" class="no-hover">
+                                Заказать разработку бота
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/freelance_manager_bot/" class="no-hover">
+                                Агрегатор фриланса
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/zakupki_notifier_bot/" class="no-hover">
+                                Парсер закупок
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/sushipizzabot/" class="no-hover">
+                                Интернет-магазин
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-6">
+                        <p class="footer_links_title">
+                            B2B
+                        </p>
+                        <p class="footer_item">
+                            <a href="/b2b/" class="no-hover">
+                                Услуги для бизнеса
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/b2b/parsing/" class="no-hover">
+                                Парсинг для бизнеса
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/b2b/data_analysis/" class="no-hover">
+                                Анализ данных для бизнеса
+                            </a>
+                        </p>
+                        <p class="footer_item">
+                            <a href="/b2b/price_monitoring/" class="no-hover">
+                                Мониторинг цен для бизнеса
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-xl-3 col-md-3 col-6">
+                        <p class="footer_links_title">
+                            Контакты
+                        </p>
+                        <p class="mb-1">
+                            <small>
+                                Telegram:
+                                <a href="#" onclick="return set_contact(this);" class="button c-telegram">
+                                    показать контакт
+                                </a>
+                            </small>
+                        </p>
+                        <p class="mb-1">
+                            <small>
+                                E-mail:
+                                <a href="#" onclick="return set_contact(this);" class="button c-email">
+                                    показать контакт
+                                </a>
+                            </small>
+                        </p>
+                        <p class="mb-1">
+                            <small>
+                                <a href="#" onclick="return set_contact(this, false);"
+                                   target="_blank" rel="noopener noreferrer"
+                                   class="button c-youtube">
+                                    Канал на YouTube
+                                </a>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- jQuery JavaScript-->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha384-i61gTtaoovXtAbKjo903+O55Jkn2+RtzHtvNez+yI49HAASvznhe9sZyjaSHTau9"
+        crossorigin="anonymous"></script>
+
+<!-- Popper.js JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+        crossorigin="anonymous"></script>
+
+<!-- Additional JavaScript -->
+
+<script type="text/javascript">
+
+    function copyToClipboard(elem) {
+        // create hidden text element, if it doesn't already exist
+        var targetId = "_hiddenCopyText_";
+        var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+        var origSelectionStart, origSelectionEnd;
+        if (isInput) {
+            // can just use the original source element for the selection and copy
+            target = elem;
+            origSelectionStart = elem.selectionStart;
+            origSelectionEnd = elem.selectionEnd;
+        } else {
+            // must use a temporary form element for the selection and copy
+            target = document.getElementById(targetId);
+            if (!target) {
+                var target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-999999px";
+                target.style.top = "0";
+                target.id = targetId;
+                document.body.appendChild(target);
+            }
+            target.textContent = elem.textContent;
+        }
+        // select the content
+        var currentFocus = document.activeElement;
+        target.focus({
+            preventScroll: true
+        });
+        target.setSelectionRange(0, target.value.length);
+
+        // copy the selection
+        var succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch(e) {
+            succeed = false;
+        }
+        // restore original focus
+        if (currentFocus && typeof currentFocus.focus === "function") {
+            currentFocus.focus();
+        }
+
+        if (isInput) {
+            // restore prior selection
+            elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+        } else {
+            // clear temporary content
+            target.textContent = "";
+        }
+        return succeed;
+    }
+
+    $(document).ready(function() {
+        $('.selector').click(function() {
+            var copied = copyToClipboard(this);
+            if (copied) {
+                $(this).attr('data-bs-placement', 'auto');
+                $(this).attr('data-bs-toggle', 'tooltip');
+                $(this).attr('title', 'Скопировано');
+                $(this).tooltip('enable');
+                $(this).tooltip('show');
+                $(this).on('hide.bs.tooltip', function() {
+                    $(this).tooltip('disable');
+                });
+            };
+        });
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var dropdown_state_in = false;
+        $('.dropdown').hover(function() {
+            if (!dropdown_state_in) {
+                dropdown_state_in = true;
+                $(this).find('.dropdown-menu-slow').queue(function(next) {
+                    if (dropdown_state_in) {
+                        $(this).show(200);
+                    }
+                    next();
+                });
+            }
+
+        }, function() {
+            dropdown_state_in = false;
+            $(this).find('.dropdown-menu-slow').css('display', 'none');
+        });
+    });
+
+</script>
+
+
+
+</body>

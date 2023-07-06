@@ -1,0 +1,98 @@
+[
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/cb/67/cb6707d808a6898adf2b6026868b4b41.png",
+        "card_name": "Товар №1",
+        "width": "31 см.",
+        "height": "41 см.",
+        "depth": "51 см.",
+        "card_price": "15 300"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/5c/50/5c5055e899e10af2c354a6cc62305fae.png",
+        "card_name": "Товар №2",
+        "width": "32 см.",
+        "height": "42 см.",
+        "depth": "52 см.",
+        "card_price": "2 000"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/69/3d/693d1d658e097469354226009adf3f59.png",
+        "card_name": "Товар №3",
+        "width": "33 см.",
+        "height": "43 см.",
+        "depth": "53 см.",
+        "card_price": "4 300"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/32/51/3251fce7194fb90b3499e3c1e1fb5684.png",
+        "card_name": "Товар №4",
+        "width": "34 см.",
+        "height": "44 см.",
+        "depth": "54 см.",
+        "card_price": "18 400"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/16/c3/16c3ffbf23dfd83c3b2380a73c13cf9d.png",
+        "card_name": "Товар №5",
+        "width": "35 см.",
+        "height": "45 см.",
+        "depth": "55 см.",
+        "card_price": "9 700"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/d1/17/d117be4981f72e7fcf5e3f1a63b1fe3d.png",
+        "card_name": "Товар №6",
+        "width": "36 см.",
+        "height": "46 см.",
+        "depth": "56 см.",
+        "card_price": "2 100"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/8e/ff/8eff453e00dd63d983cdacac3400774e.png",
+        "card_name": "Товар №7",
+        "width": "37 см.",
+        "height": "47 см.",
+        "depth": "57 см.",
+        "card_price": "12 000"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/28/14/28141b478bc12c79b8d8158f6334d640.png",
+        "card_name": "Товар №8",
+        "width": "38 см.",
+        "height": "48 см.",
+        "depth": "58 см.",
+        "card_price": "17 000"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/c2/fb/c2fbeea79bb66127792df7c33a2e6043.png",
+        "card_name": "Товар №9",
+        "width": "39 см.",
+        "height": "49 см.",
+        "depth": "59 см.",
+        "card_price": "11 000"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/49/d7/49d794f3586c09d0bff9fc19ff2bfdcf.png",
+        "card_name": "Товар №10",
+        "width": "310 см.",
+        "height": "410 см.",
+        "depth": "510 см.",
+        "card_price": "6 900"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/56/98/56983b4db559014ae56441c51190c202.png",
+        "card_name": "Товар №11",
+        "width": "311 см.",
+        "height": "411 см.",
+        "depth": "511 см.",
+        "card_price": "11 300"
+    },
+    {
+        "card_logo": "https://www.parsemachine.com/media/cache/69/9d/699d6943c5edeb09582af52eadf83cf8.png",
+        "card_name": "Товар №12",
+        "width": "312 см.",
+        "height": "412 см.",
+        "depth": "512 см.",
+        "card_price": "2 600"
+    }
+]
